@@ -1,0 +1,11 @@
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\bin\Debug\Prototype_TaskPulse.exe.config
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\bin\Debug\Prototype_TaskPulse.exe
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\bin\Debug\Prototype_TaskPulse.pdb
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.csproj.AssemblyReference.cache
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.Form1.resources
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.Properties.Resources.resources
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.csproj.GenerateResource.cache
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.csproj.CoreCompileInputs.cache
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.exe
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.pdb
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.DailyPlan.resources
