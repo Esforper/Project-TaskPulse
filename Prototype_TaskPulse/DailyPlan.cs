@@ -19,6 +19,7 @@ namespace Prototype_TaskPulse
 
 		List<PlanClass> plans = new List<PlanClass>();	//planların tümü
 		Database database = new Database();
+		int selectedRowId;
 
 		private void addPlan_Click(object sender, EventArgs e)
 		{
@@ -88,15 +89,15 @@ namespace Prototype_TaskPulse
 
 		void updateDataGrid()
 		{
-			
+			btnUpdate.Enabled=false;
 			plans = database.sortPlans(database.getPlans());
 			dataGridView1.Rows.Clear();
 
 			DateTime oneMonthLater = DateTime.Now.AddMonths(1);
-			DateTime now = DateTime.Now;
+			DateTime now = DateTime.Today;
 			if (cmbxFiltDataGrid.SelectedIndex == 0)
 			{
-				plans = plans.Where(p => p.getPlanDate() < oneMonthLater && p.getPlanDate() > now).ToList();
+				plans = plans.Where(p => p.getPlanDate() < oneMonthLater && p.getPlanDate() >= now).ToList();
 			}
 			else if(cmbxFiltDataGrid.SelectedIndex == 1)
 			{
@@ -146,7 +147,8 @@ namespace Prototype_TaskPulse
 					DataGridViewCell selectedCell = selectedRow.Cells[e.ColumnIndex];
 					if (selectedCell.Value != null)
 					{
-						onePlan = database.getOnePlan(Convert.ToInt32 ( selectedRow.Cells[4].Value));
+						selectedRowId = Convert.ToInt32(selectedRow.Cells[4].Value);
+						onePlan = database.getOnePlan(selectedRowId);
 
 						//plan ile ilgili değerleri tabloya doldur
 						textBoxPlanName.Text = onePlan.getPlanName();
@@ -155,14 +157,11 @@ namespace Prototype_TaskPulse
 						comboBoxPlanDegree.Text = PlanDegreeReverseFunc(onePlan.getPlanDegree());
 						comboBoxPlanType.Text = onePlan.getPlanType();
 
+						btnUpdate.Enabled = true;
+
 					}
 				}
 			}
-		}
-
-		private void btnUpdate_Click(object sender, EventArgs e)
-		{
-			dataGridView1.Rows.Clear();
 		}
 
 		private void cmbxFiltDataGrid_SelectedValueChanged(object sender, EventArgs e)
@@ -181,13 +180,55 @@ namespace Prototype_TaskPulse
 			richTextBoxPlanDescription.Clear();
 			comboBoxPlanDegree.SelectedIndex = 3;
 			comboBoxPlanType.SelectedIndex = 3;
-			dateTimePickerPlanDate.Value = DateTime.Now;
+			//dateTimePickerPlanDate.Value = DateTime.Today;
 
 		}
 
 		private void btnDeletePlan_Click(object sender, EventArgs e)
 		{
+			if (dataGridView1.SelectedRows.Count > 0)
+			{
+				// Seçili satır varsa devam et
+				int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
 
+				// DataGridView'den seçili satırın ID'sini al
+				int planId = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["Id"].Value);
+				
+				// Veritabanından planı sil
+				database.deletePlan(planId);
+				// DataGridView'i güncelle
+				updateDataGrid();
+				dataGridView1.Rows.RemoveAt(selectedRowIndex);
+				// Formu temizle
+				formClear();
+			}
+		}
+
+		private void testbtnTableRestart_Click(object sender, EventArgs e)
+		{
+			updateDataGrid();
+		}
+
+		private void btnUpdate_Click_1(object sender, EventArgs e)
+		{
+
+			PlanClass onePlan = new PlanClass();
+			onePlan = database.getOnePlan(Convert.ToInt32(selectedRowId));
+
+			//plan ile ilgili değerleri tabloya doldur
+			onePlan.setPlanName(textBoxPlanName.Text);
+			onePlan.setPlanDecription(richTextBoxPlanDescription.Text);
+			onePlan.setPlanDate(dateTimePickerPlanDate.Value);
+			onePlan.setPlanDegree(PlanDegreeFunc(comboBoxPlanDegree.Text));
+			onePlan.setPlanType(comboBoxPlanType.Text);
+
+			database.updateSelectedPlan(onePlan.getPlanId(),onePlan.getPlanName(),onePlan.getPlanDecription(),onePlan.getPlanDate(),onePlan.getPlanDegree(),onePlan.getPlanType(),onePlan.getPlanCreationDate());
+			updateDataGrid();
+		}
+
+		private void btnTableClear_Click(object sender, EventArgs e)
+		{
+			dataGridView1.Rows.Clear();
 		}
 	}
 }

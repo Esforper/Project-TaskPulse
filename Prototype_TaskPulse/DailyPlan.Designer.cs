@@ -29,11 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.testbtnTableRestart = new System.Windows.Forms.Button();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.cmbxFiltDataGrid = new System.Windows.Forms.ComboBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.btnDeletePlan = new System.Windows.Forms.Button();
-			this.btnUpdate = new System.Windows.Forms.Button();
+			this.btnTableClear = new System.Windows.Forms.Button();
 			this.label6 = new System.Windows.Forms.Label();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
 			this.panel2 = new System.Windows.Forms.Panel();
@@ -53,6 +54,7 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.panel5 = new System.Windows.Forms.Panel();
+			this.btnUpdate = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,9 +66,10 @@
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.panel1.Controls.Add(this.testbtnTableRestart);
 			this.panel1.Controls.Add(this.panel4);
 			this.panel1.Controls.Add(this.btnDeletePlan);
-			this.panel1.Controls.Add(this.btnUpdate);
+			this.panel1.Controls.Add(this.btnTableClear);
 			this.panel1.Controls.Add(this.label6);
 			this.panel1.Controls.Add(this.dateTimePicker2);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,6 +78,16 @@
 			this.panel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
 			this.panel1.Size = new System.Drawing.Size(1098, 565);
 			this.panel1.TabIndex = 3;
+			// 
+			// testbtnTableRestart
+			// 
+			this.testbtnTableRestart.Location = new System.Drawing.Point(394, 449);
+			this.testbtnTableRestart.Name = "testbtnTableRestart";
+			this.testbtnTableRestart.Size = new System.Drawing.Size(164, 72);
+			this.testbtnTableRestart.TabIndex = 14;
+			this.testbtnTableRestart.Text = "<test> Tabloyu yenile";
+			this.testbtnTableRestart.UseVisualStyleBackColor = true;
+			this.testbtnTableRestart.Click += new System.EventHandler(this.testbtnTableRestart_Click);
 			// 
 			// panel4
 			// 
@@ -126,15 +139,15 @@
 			this.btnDeletePlan.UseVisualStyleBackColor = true;
 			this.btnDeletePlan.Click += new System.EventHandler(this.btnDeletePlan_Click);
 			// 
-			// btnUpdate
+			// btnTableClear
 			// 
-			this.btnUpdate.Location = new System.Drawing.Point(33, 449);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(161, 72);
-			this.btnUpdate.TabIndex = 9;
-			this.btnUpdate.Text = "<test> tabloyu temizle";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+			this.btnTableClear.Location = new System.Drawing.Point(33, 449);
+			this.btnTableClear.Name = "btnTableClear";
+			this.btnTableClear.Size = new System.Drawing.Size(161, 72);
+			this.btnTableClear.TabIndex = 9;
+			this.btnTableClear.Text = "<test> tabloyu temizle";
+			this.btnTableClear.UseVisualStyleBackColor = true;
+			this.btnTableClear.Click += new System.EventHandler(this.btnTableClear_Click);
 			// 
 			// label6
 			// 
@@ -178,6 +191,7 @@
 			// 
 			// panel3
 			// 
+			this.panel3.Controls.Add(this.btnUpdate);
 			this.panel3.Controls.Add(this.labelError);
 			this.panel3.Controls.Add(this.comboBoxPlanType);
 			this.panel3.Controls.Add(this.label7);
@@ -343,6 +357,16 @@
 			this.panel5.Size = new System.Drawing.Size(1098, 565);
 			this.panel5.TabIndex = 3;
 			// 
+			// btnUpdate
+			// 
+			this.btnUpdate.Location = new System.Drawing.Point(185, 472);
+			this.btnUpdate.Name = "btnUpdate";
+			this.btnUpdate.Size = new System.Drawing.Size(225, 59);
+			this.btnUpdate.TabIndex = 14;
+			this.btnUpdate.Text = "planı düzenle";
+			this.btnUpdate.UseVisualStyleBackColor = true;
+			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+			// 
 			// DailyPlan
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,7 +406,7 @@
 		private System.Windows.Forms.DateTimePicker dateTimePicker2;
 		private System.Windows.Forms.ComboBox comboBoxPlanDegree;
 		private System.Windows.Forms.Button btnDeletePlan;
-		private System.Windows.Forms.Button btnUpdate;
+		private System.Windows.Forms.Button btnTableClear;
 		private System.Windows.Forms.ComboBox comboBoxPlanType;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Button btnformClear;
@@ -392,5 +416,7 @@
 		private System.Windows.Forms.Panel panel5;
 		private System.Windows.Forms.ComboBox cmbxFiltDataGrid;
 		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.Button testbtnTableRestart;
+		private System.Windows.Forms.Button btnUpdate;
 	}
 }

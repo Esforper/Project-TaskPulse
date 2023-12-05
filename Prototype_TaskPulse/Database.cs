@@ -131,10 +131,6 @@ namespace Prototype_TaskPulse
 			return id;
 		}
 
-
-
-
-
 		public List<PlanClass> sortPlans(List<PlanClass> plans)
 		{
 			return plans.OrderBy(p => p.getPlanDate()).ThenBy(p => p.getPlanCreationDate()).ToList();
@@ -158,6 +154,24 @@ namespace Prototype_TaskPulse
 			PlanClass onePlan = new PlanClass();
 			onePlan = plans.Where(p => p.getPlanId() == id).First();
 			return onePlan;
+		}
+	
+		public void deletePlan(int planId)
+		{
+			List<string> lines = File.ReadAllLines(dosyaYolu).ToList();
+			lines.RemoveAll(line => line.StartsWith(planId.ToString()));
+			File.WriteAllLines(dosyaYolu, lines);
+			plans = getPlans();
+		}
+		public void updateSelectedPlan(int planId, string planName, string planDescription, DateTime planDate, int planDegree, string planType, DateTime PlanCreationDate)
+		{
+			List<string> lines = File.ReadAllLines(dosyaYolu).ToList();
+			lines.RemoveAll(line => line.StartsWith(planId.ToString()));
+			string satir = planId + "</>" + planName + "</>" + planDescription + "</>" + planDate.ToString("d") + "</>" + planDegree + "</>" + planType + "</>" + PlanCreationDate.ToString("d");
+			lines.Add(satir);
+			File.WriteAllLines(dosyaYolu, lines);
+			plans = getPlans();
+
 		}
 	}
 }
