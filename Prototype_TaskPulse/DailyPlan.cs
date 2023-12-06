@@ -198,7 +198,6 @@ namespace Prototype_TaskPulse
 				database.deletePlan(planId);
 				// DataGridView'i güncelle
 				updateDataGrid();
-				dataGridView1.Rows.RemoveAt(selectedRowIndex);
 				// Formu temizle
 				formClear();
 			}

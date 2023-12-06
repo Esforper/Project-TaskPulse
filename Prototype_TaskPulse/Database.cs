@@ -16,6 +16,7 @@ namespace Prototype_TaskPulse
 		static string belgeKlasoru = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 		string dosyaYolu = Path.Combine(belgeKlasoru, veritabaniDosyaAdi);
 
+		//planları depolamak için plans listesi, plan id değerlerini tutmak için id listesi oluştur
 		static List<int> Ids = new List<int>();
 		static List<PlanClass> plans = new List<PlanClass>();
 
@@ -158,11 +159,14 @@ namespace Prototype_TaskPulse
 	
 		public void deletePlan(int planId)
 		{
+			//tüm dosyayı bir string listesine alıp istenilen yer silinir. sonra verileri geri yükle
 			List<string> lines = File.ReadAllLines(dosyaYolu).ToList();
 			lines.RemoveAll(line => line.StartsWith(planId.ToString()));
 			File.WriteAllLines(dosyaYolu, lines);
+			plans.Clear();
 			plans = getPlans();
 		}
+
 		public void updateSelectedPlan(int planId, string planName, string planDescription, DateTime planDate, int planDegree, string planType, DateTime PlanCreationDate)
 		{
 			List<string> lines = File.ReadAllLines(dosyaYolu).ToList();
@@ -171,7 +175,6 @@ namespace Prototype_TaskPulse
 			lines.Add(satir);
 			File.WriteAllLines(dosyaYolu, lines);
 			plans = getPlans();
-
 		}
 	}
 }
