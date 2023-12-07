@@ -40,6 +40,7 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.btnUpdate = new System.Windows.Forms.Button();
 			this.labelError = new System.Windows.Forms.Label();
 			this.comboBoxPlanType = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.panel5 = new System.Windows.Forms.Panel();
-			this.btnUpdate = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -76,7 +76,7 @@
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-			this.panel1.Size = new System.Drawing.Size(1098, 565);
+			this.panel1.Size = new System.Drawing.Size(1104, 565);
 			this.panel1.TabIndex = 3;
 			// 
 			// testbtnTableRestart
@@ -96,7 +96,7 @@
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel4.Location = new System.Drawing.Point(20, 0);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(1058, 425);
+			this.panel4.Size = new System.Drawing.Size(1064, 425);
 			this.panel4.TabIndex = 13;
 			// 
 			// cmbxFiltDataGrid
@@ -124,7 +124,7 @@
 			this.dataGridView1.RowHeadersWidth = 51;
 			this.dataGridView1.RowTemplate.Height = 24;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(1058, 371);
+			this.dataGridView1.Size = new System.Drawing.Size(1064, 371);
 			this.dataGridView1.TabIndex = 11;
 			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
 			this.dataGridView1.SizeChanged += new System.EventHandler(this.dataGridView1_SizeChanged);
@@ -208,8 +208,18 @@
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panel3.Location = new System.Drawing.Point(0, 79);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(540, 565);
+			this.panel3.Size = new System.Drawing.Size(534, 565);
 			this.panel3.TabIndex = 2;
+			// 
+			// btnUpdate
+			// 
+			this.btnUpdate.Location = new System.Drawing.Point(185, 472);
+			this.btnUpdate.Name = "btnUpdate";
+			this.btnUpdate.Size = new System.Drawing.Size(225, 59);
+			this.btnUpdate.TabIndex = 14;
+			this.btnUpdate.Text = "planı düzenle";
+			this.btnUpdate.UseVisualStyleBackColor = true;
+			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
 			// 
 			// labelError
 			// 
@@ -352,20 +362,10 @@
 			// 
 			this.panel5.Controls.Add(this.panel1);
 			this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel5.Location = new System.Drawing.Point(540, 79);
+			this.panel5.Location = new System.Drawing.Point(534, 79);
 			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(1098, 565);
+			this.panel5.Size = new System.Drawing.Size(1104, 565);
 			this.panel5.TabIndex = 3;
-			// 
-			// btnUpdate
-			// 
-			this.btnUpdate.Location = new System.Drawing.Point(185, 472);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(225, 59);
-			this.btnUpdate.TabIndex = 14;
-			this.btnUpdate.Text = "planı düzenle";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
 			// 
 			// DailyPlan
 			// 

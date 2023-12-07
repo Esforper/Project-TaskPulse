@@ -9,3 +9,4 @@ C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prot
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.exe
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.pdb
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.DailyPlan.resources
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.ReportPage.resources
