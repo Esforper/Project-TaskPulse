@@ -16,5 +16,10 @@ namespace Prototype_TaskPulse
 		{
 			InitializeComponent();
 		}
+
+		private void ReportPage_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
