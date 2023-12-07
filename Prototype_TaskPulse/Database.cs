@@ -1,18 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 
 namespace Prototype_TaskPulse
 {
 	internal class Database
 	{
 		// veri tabanı için dosya yolu ve isim ayarlama
-		private const string veritabaniDosyaAdi = "veritabani.txt";
+		private const string veritabaniDosyaAdi = "veritabani.json";
 		static string belgeKlasoru = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 		string dosyaYolu = Path.Combine(belgeKlasoru, veritabaniDosyaAdi);
 
@@ -28,19 +26,31 @@ namespace Prototype_TaskPulse
 				File.Create(dosyaYolu).Close();
 			}
 		}
+		private void SavePlansToJson()
+		{
+			string json = JsonConvert.SerializeObject(plans);
+			File.WriteAllText(dosyaYolu, json);
+		}
+		private void LoadPlansFromJson()
+		{
+			string json = File.ReadAllText(dosyaYolu);
+
+			if (!string.IsNullOrEmpty(json))
+			{
+				plans = JsonConvert.DeserializeObject<List<PlanClass>>(json) ?? new List<PlanClass>();
+				Ids = plans.Select(p => p.PlanId).ToList();
+			}
+		}
 
 		//planı database ye kaydet
-		public void savePlan(string planName, string planDescription, DateTime planDate, int planDegree, string planType, DateTime PlanCreationDate)
+		public void SavePlan(string planName, string planDescription, DateTime planDate, int planDegree, string planType, DateTime planCreationDate)
 		{
-			int newPlanID = setId();
-			
-			//en yüksek id değerini setId fonksiyonu ile verip database ye kaydediyor
-			string text = newPlanID + "</>" + planName + "</>" + planDescription + "</>" + planDate.ToString("d") + "</>" + planDegree + "</>" + planType + "</>" + PlanCreationDate.ToString("d");
+			int newPlanID = SetId();
+			PlanClass newPlan = new PlanClass();
+			newPlan.setPlan(newPlanID,planName,planDescription,planDate,planDegree,planType,planCreationDate);
 
-			using (StreamWriter writer = new StreamWriter(dosyaYolu, true))
-			{
-				writer.WriteLine(text);
-			}
+			plans.Add(newPlan);
+			SavePlansToJson();
 		}
 
 		/**
@@ -50,132 +60,64 @@ namespace Prototype_TaskPulse
 		//son satırı tespit edip ondan öncekileri okumamak için.
 		protected string lastSatir;
 
-		public List<PlanClass> getPlans()
+		public List<PlanClass> GetPlans()
 		{
-			using (StreamReader SW = new StreamReader(dosyaYolu))
-			{
-				string satir = "";
-				int flag = 0;
-
-				if (plans.Count == 0)
-				{
-					while ((satir = SW.ReadLine()) != null)
-					{
-						lastSatir = satir;
-						PlanClass plan = new PlanClass();
-
-						char[] ayrac = "<N/>".ToCharArray();
-						string[] _satir = satir.Split(ayrac, StringSplitOptions.None);
-						int a = _satir.Length;
-						if (_satir.Length >= 6)
-						{
-							DateTime _planDate = Convert.ToDateTime(_satir[9]);
-							DateTime _planCreationDate = Convert.ToDateTime(_satir[18]);
-							plan.setPlan(int.Parse(_satir[0]), _satir[3], _satir[6], _planDate, int.Parse(_satir[12]), _satir[15], _planCreationDate);
-
-							plans.Add(plan);
-							Ids.Add(plan.getPlanId());
-						}
-					}
-				}
-				else
-				{
-					while ((satir = SW.ReadLine()) != null)
-					{
-
-						if (satir != lastSatir && flag == 0)
-						{
-							continue;
-						}
-						if (satir == lastSatir)
-						{
-							flag = 1;
-							continue;
-						}
-						lastSatir = satir;
-						PlanClass plan = new PlanClass();
-
-						char[] ayrac = "<N/>".ToCharArray();
-						string[] _satir = satir.Split(ayrac, StringSplitOptions.None);
-						int a = _satir.Length;
-						if (_satir.Length >= 6)
-						{
-							DateTime _planDate = Convert.ToDateTime(_satir[9]);
-							DateTime _planCreationDate = Convert.ToDateTime(_satir[18]);
-							plan.setPlan(int.Parse(_satir[0]), _satir[3], _satir[6], _planDate, int.Parse(_satir[12]), _satir[15], _planCreationDate);
-
-							plans.Add(plan);
-
-							Ids.Add(plan.getPlanId());
-						}
-					}
-				}
-			}
-
-
-			return sortPlans(plans);
+			LoadPlansFromJson();
+			return SortPlans(plans);
 		}
 
-		public int setId()
+		private int SetId()
 		{
-			int id;
-			if (Ids.Count == 0)
-			{
-				id = 1;
-			}
-			else
-			{
-				id = Ids.Max() + 1;
-			}
-
+			int id = Ids.Count == 0 ? 1 : Ids.Max() + 1;
 			Ids.Add(id);
 			return id;
 		}
 
-		public List<PlanClass> sortPlans(List<PlanClass> plans)
+		public List<PlanClass> SortPlans(List<PlanClass> plans)
 		{
-			return plans.OrderBy(p => p.getPlanDate()).ThenBy(p => p.getPlanCreationDate()).ToList();
-
+			return plans.OrderBy(p => p.PlanDate).ThenBy(p => p.PlanCreationDate).ToList();
 		}
 
 		public PlanClass getOnePlan(DateTime planCreationTime)
 		{
 			PlanClass onePlan = new PlanClass();
-			onePlan = plans.Where(p => p.getPlanCreationDate() == planCreationTime).First();
+			onePlan = plans.Where(p => p.PlanCreationDate == planCreationTime).First();
 			return onePlan;
 		}
 		public PlanClass getOnePlan(string planName, DateTime planDate, int planDegree, string planType)
 		{
 			PlanClass onePlan = new PlanClass();
-			onePlan = plans.Where(p => p.getPlanName() == planName && p.getPlanDate() == planDate && p.getPlanDegree() == planDegree && p.getPlanType() == planType).First();
+			onePlan = plans.Where(p => p.PlanName == planName && p.PlanDate == planDate && p.PlanDegree == planDegree && p.PlanType == planType).First();
 			return onePlan;
 		}
 		public PlanClass getOnePlan(int id)
 		{
 			PlanClass onePlan = new PlanClass();
-			onePlan = plans.Where(p => p.getPlanId() == id).First();
+			onePlan = plans.Where(p => p.PlanId == id).First();
 			return onePlan;
 		}
-	
-		public void deletePlan(int planId)
+
+		public void DeletePlan(int planId)
 		{
-			//tüm dosyayı bir string listesine alıp istenilen yer silinir. sonra verileri geri yükle
-			List<string> lines = File.ReadAllLines(dosyaYolu).ToList();
-			lines.RemoveAll(line => line.StartsWith(planId.ToString()));
-			File.WriteAllLines(dosyaYolu, lines);
-			plans.Clear();
-			plans = getPlans();
+			plans.RemoveAll(p => p.PlanId == planId);
+			SavePlansToJson();
 		}
 
-		public void updateSelectedPlan(int planId, string planName, string planDescription, DateTime planDate, int planDegree, string planType, DateTime PlanCreationDate)
+		public void UpdateSelectedPlan(int planId, string planName, string planDescription, DateTime planDate, int planDegree, string planType, DateTime planCreationDate)
 		{
-			List<string> lines = File.ReadAllLines(dosyaYolu).ToList();
-			lines.RemoveAll(line => line.StartsWith(planId.ToString()));
-			string satir = planId + "</>" + planName + "</>" + planDescription + "</>" + planDate.ToString("d") + "</>" + planDegree + "</>" + planType + "</>" + PlanCreationDate.ToString("d");
-			lines.Add(satir);
-			File.WriteAllLines(dosyaYolu, lines);
-			plans = getPlans();
+			PlanClass updatedPlan = plans.FirstOrDefault(p => p.PlanId == planId);
+			
+			if (updatedPlan != null)
+			{
+				updatedPlan.setPlan(planId, planName, planDescription, planDate, planDegree, planType, planCreationDate);
+				SavePlansToJson();
+			}
+			else
+			{
+				MessageBox.Show("Plan Bulunamadı");
+			}
 		}
+
 	}
 }
 

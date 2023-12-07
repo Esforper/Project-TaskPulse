@@ -10,3 +10,6 @@ C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prot
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.pdb
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.DailyPlan.resources
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.ReportPage.resources
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.csproj.CopyComplete

@@ -27,7 +27,7 @@ namespace Prototype_TaskPulse
 			//plan nesnesinin içeriğini verilerle doldur.
 			plan.addPlan(textBoxPlanName.Text, richTextBoxPlanDescription.Text, dateTimePickerPlanDate.Value, PlanDegreeFunc(comboBoxPlanDegree), comboBoxPlanType.Text);
 			//herhangi bir yer boşsa error ver
-			if (plan.geterror() == true) { labelError.Visible = true; }else { labelError.Visible = false; }
+			if (plan.error == true) { labelError.Visible = true; }else { labelError.Visible = false; }
 			
 			updateDataGrid();
 		}
@@ -90,22 +90,22 @@ namespace Prototype_TaskPulse
 		void updateDataGrid()
 		{
 			btnUpdate.Enabled=false;
-			plans = database.sortPlans(database.getPlans());
+			plans = database.SortPlans(database.GetPlans());
 			dataGridView1.Rows.Clear();
 
 			DateTime oneMonthLater = DateTime.Now.AddMonths(1);
 			DateTime now = DateTime.Today;
 			if (cmbxFiltDataGrid.SelectedIndex == 0)
 			{
-				plans = plans.Where(p => p.getPlanDate() < oneMonthLater && p.getPlanDate() >= now).ToList();
+				plans = plans.Where(p => p.PlanDate < oneMonthLater && p.PlanDate >= now).ToList();
 			}
 			else if(cmbxFiltDataGrid.SelectedIndex == 1)
 			{
-				plans = plans.Where(p => p.getPlanDate() > now).ToList();
+				plans = plans.Where(p => p.PlanDate > now).ToList();
 			}
 			foreach (PlanClass p in plans)
 			{
-				dataGridView1.Rows.Add(p.getPlanName(), p.getPlanDate().ToString("D"), PlanDegreeReverseFunc(p.getPlanDegree()), p.getPlanType() , p.getPlanId().ToString());
+				dataGridView1.Rows.Add(p.PlanName, p.PlanDate.ToString("D"), PlanDegreeReverseFunc(p.PlanDegree), p.PlanType , p.PlanId.ToString());
 			}
 		}
 
@@ -151,11 +151,11 @@ namespace Prototype_TaskPulse
 						onePlan = database.getOnePlan(selectedRowId);
 
 						//plan ile ilgili değerleri tabloya doldur
-						textBoxPlanName.Text = onePlan.getPlanName();
-						richTextBoxPlanDescription.Text = onePlan.getPlanDecription();
-						dateTimePickerPlanDate.Value = onePlan.getPlanDate();
-						comboBoxPlanDegree.Text = PlanDegreeReverseFunc(onePlan.getPlanDegree());
-						comboBoxPlanType.Text = onePlan.getPlanType();
+						textBoxPlanName.Text = onePlan.PlanName;
+						richTextBoxPlanDescription.Text = onePlan.PlanDecription;
+						dateTimePickerPlanDate.Value = onePlan.PlanDate;
+						comboBoxPlanDegree.Text = PlanDegreeReverseFunc(onePlan.PlanDegree);
+						comboBoxPlanType.Text = onePlan.PlanType;
 
 						btnUpdate.Enabled = true;
 
@@ -195,7 +195,7 @@ namespace Prototype_TaskPulse
 				int planId = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["Id"].Value);
 				
 				// Veritabanından planı sil
-				database.deletePlan(planId);
+				database.DeletePlan(planId);
 				// DataGridView'i güncelle
 				updateDataGrid();
 				// Formu temizle
@@ -215,13 +215,13 @@ namespace Prototype_TaskPulse
 			onePlan = database.getOnePlan(Convert.ToInt32(selectedRowId));
 
 			//plan ile ilgili değerleri tabloya doldur
-			onePlan.setPlanName(textBoxPlanName.Text);
-			onePlan.setPlanDecription(richTextBoxPlanDescription.Text);
-			onePlan.setPlanDate(dateTimePickerPlanDate.Value);
-			onePlan.setPlanDegree(PlanDegreeFunc(comboBoxPlanDegree.Text));
-			onePlan.setPlanType(comboBoxPlanType.Text);
+			onePlan.PlanName = textBoxPlanName.Text;
+			onePlan.PlanDecription = richTextBoxPlanDescription.Text;
+			onePlan.PlanDate=dateTimePickerPlanDate.Value;
+			onePlan.PlanDegree=PlanDegreeFunc(comboBoxPlanDegree.Text);
+			onePlan.PlanType=comboBoxPlanType.Text;
 
-			database.updateSelectedPlan(onePlan.getPlanId(),onePlan.getPlanName(),onePlan.getPlanDecription(),onePlan.getPlanDate(),onePlan.getPlanDegree(),onePlan.getPlanType(),onePlan.getPlanCreationDate());
+			database.UpdateSelectedPlan(onePlan.PlanId,onePlan.PlanName,onePlan.PlanDecription,onePlan.PlanDate,onePlan.PlanDegree,onePlan.PlanType,onePlan.PlanCreationDate);
 			updateDataGrid();
 		}
 

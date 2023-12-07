@@ -9,14 +9,14 @@ namespace Prototype_TaskPulse
 {
 	internal class PlanClass
 	{
-		protected int PlanId;
-		protected string PlanName;
-		protected string PlanDecription;
-		protected DateTime PlanDate;
-		protected int PlanDegree;
-		protected string PlanType;
-		protected bool error;
-		protected DateTime PlanCreationDate;
+		public int PlanId;
+		public string PlanName;
+		public string PlanDecription;
+		public DateTime PlanDate;
+		public int PlanDegree;
+		public string PlanType;
+		public bool error;
+		public DateTime PlanCreationDate;
 		
 
 		//yeni plan oluşturulduğu zaman kaydetmeye yarıyor
@@ -52,29 +52,10 @@ namespace Prototype_TaskPulse
 			else { error = true; }
 		}
 
-		//--- get ---
-		public bool geterror() { return error; }
-		public string getPlanName() { return PlanName; }
-		public string getPlanDecription() {  return PlanDecription; }
-		public DateTime getPlanDate() {  return PlanDate; }
-		public int getPlanDegree() {  return PlanDegree; }
-		public string getPlanType() {  return PlanType; }
-		public DateTime getPlanCreationDate() {  return PlanCreationDate; }
-		public int getPlanId() { return PlanId; }
-		//--- set ---
-		public void setPlanName(string planName ) { PlanName = planName; }
-		public void setPlanDecription(string planDecription) { PlanDecription = planDecription; }
-		public void setPlanDate(DateTime planDate) { PlanDate = planDate; }
-		public void setPlanDegree(int planDegree) { PlanDegree = planDegree; }
-		public void setPlanType(string planType) { PlanType = planType; }
-		public void setPlanCreationDate(DateTime planCreationDate) { PlanCreationDate = planCreationDate; }
-		public void setPlanId(int planId) {  PlanId = planId; }
-		//--- --- ---
-
 		public void savePlan()
 		{
 			Database database = new Database();
-			database.savePlan(PlanName, PlanDecription, PlanDate, PlanDegree, PlanType, PlanCreationDate);
+			database.SavePlan(PlanName, PlanDecription, PlanDate, PlanDegree, PlanType, PlanCreationDate);
 		}
 		
 
