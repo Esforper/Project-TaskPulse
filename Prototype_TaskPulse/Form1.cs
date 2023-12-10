@@ -24,9 +24,30 @@ namespace Prototype_TaskPulse
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+			mainPanel.Controls.Clear();
 			DailyPlan dailyPlan = new DailyPlan();
 			mainPanel.Controls.Add(dailyPlan);
 			dailyPlan.Dock = DockStyle.Fill;
+			dailyPlan.BringToFront();
 		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			mainPanel.Controls.Clear();
+			ReportPage reportPage = new ReportPage();
+			mainPanel.Controls.Add(reportPage);
+			reportPage.Dock = DockStyle.Fill;
+			reportPage.BringToFront();
+		}
+
+		private void btnMainPage_Click(object sender, EventArgs e)
+		{
+			mainPanel.Controls.Clear();
+			MainPage mainPage = new MainPage();
+			mainPanel.Controls.Add(mainPage);
+			mainPanel.Dock = DockStyle.Fill;
+			mainPanel.BringToFront();
+		}
+		
 	}
 }
