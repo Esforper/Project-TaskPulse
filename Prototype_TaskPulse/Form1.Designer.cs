@@ -31,10 +31,10 @@
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
+			this.btnMainPage = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
-			this.btnMainPage = new System.Windows.Forms.Button();
 			this.mainPanel = new System.Windows.Forms.Panel();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -72,6 +72,19 @@
 			this.label1.Size = new System.Drawing.Size(76, 29);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Menu";
+			// 
+			// btnMainPage
+			// 
+			this.btnMainPage.FlatAppearance.BorderSize = 0;
+			this.btnMainPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnMainPage.Location = new System.Drawing.Point(0, 128);
+			this.btnMainPage.Margin = new System.Windows.Forms.Padding(0);
+			this.btnMainPage.Name = "btnMainPage";
+			this.btnMainPage.Size = new System.Drawing.Size(216, 69);
+			this.btnMainPage.TabIndex = 5;
+			this.btnMainPage.Text = "Main Page";
+			this.btnMainPage.UseVisualStyleBackColor = true;
+			this.btnMainPage.Click += new System.EventHandler(this.btnMainPage_Click);
 			// 
 			// button1
 			// 
@@ -111,21 +124,9 @@
 			this.button3.Text = "button3";
 			this.button3.UseVisualStyleBackColor = true;
 			// 
-			// btnMainPage
-			// 
-			this.btnMainPage.FlatAppearance.BorderSize = 0;
-			this.btnMainPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnMainPage.Location = new System.Drawing.Point(0, 128);
-			this.btnMainPage.Margin = new System.Windows.Forms.Padding(0);
-			this.btnMainPage.Name = "btnMainPage";
-			this.btnMainPage.Size = new System.Drawing.Size(216, 69);
-			this.btnMainPage.TabIndex = 5;
-			this.btnMainPage.Text = "Main Page";
-			this.btnMainPage.UseVisualStyleBackColor = true;
-			this.btnMainPage.Click += new System.EventHandler(this.btnMainPage_Click);
-			// 
 			// mainPanel
 			// 
+			this.mainPanel.AutoScroll = true;
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainPanel.Location = new System.Drawing.Point(219, 0);
 			this.mainPanel.Name = "mainPanel";

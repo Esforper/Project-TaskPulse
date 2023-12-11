@@ -19,7 +19,11 @@ namespace Prototype_TaskPulse
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-
+			mainPanel.Controls.Clear();
+			MainPage mainPage = new MainPage();
+			mainPanel.Controls.Add(mainPage);
+			mainPage.Dock = DockStyle.Fill;
+			mainPage.BringToFront();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -45,9 +49,8 @@ namespace Prototype_TaskPulse
 			mainPanel.Controls.Clear();
 			MainPage mainPage = new MainPage();
 			mainPanel.Controls.Add(mainPage);
-			mainPanel.Dock = DockStyle.Fill;
-			mainPanel.BringToFront();
+			mainPage.Dock = DockStyle.Fill;
+			mainPage.BringToFront();
 		}
-		
 	}
 }

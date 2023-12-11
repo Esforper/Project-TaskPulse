@@ -76,7 +76,7 @@
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-			this.panel1.Size = new System.Drawing.Size(1104, 565);
+			this.panel1.Size = new System.Drawing.Size(1104, 561);
 			this.panel1.TabIndex = 3;
 			// 
 			// testbtnTableRestart
@@ -208,7 +208,7 @@
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panel3.Location = new System.Drawing.Point(0, 79);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(534, 565);
+			this.panel3.Size = new System.Drawing.Size(534, 561);
 			this.panel3.TabIndex = 2;
 			// 
 			// btnUpdate
@@ -364,7 +364,7 @@
 			this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel5.Location = new System.Drawing.Point(534, 79);
 			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(1104, 565);
+			this.panel5.Size = new System.Drawing.Size(1104, 561);
 			this.panel5.TabIndex = 3;
 			// 
 			// DailyPlan
@@ -375,7 +375,7 @@
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel2);
 			this.Name = "DailyPlan";
-			this.Size = new System.Drawing.Size(1638, 644);
+			this.Size = new System.Drawing.Size(1638, 640);
 			this.Load += new System.EventHandler(this.DailyPlan_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
