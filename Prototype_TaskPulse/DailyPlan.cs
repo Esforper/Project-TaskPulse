@@ -18,7 +18,7 @@ namespace Prototype_TaskPulse
 		}
 
 		List<PlanClass> plans = new List<PlanClass>();	//planların tümü
-		Database database = new Database();
+		Database database = new Database();				//database yi çağır
 		int selectedRowId;
 
 		private void addPlan_Click(object sender, EventArgs e)
@@ -29,6 +29,7 @@ namespace Prototype_TaskPulse
 			//herhangi bir yer boşsa error ver
 			if (plan.error == true) { labelError.Visible = true; }else { labelError.Visible = false; }
 			
+			//data gridi ayarla
 			updateDataGrid();
 		}
 		public bool checkBoxValue(CheckBox checkBox)
@@ -56,6 +57,7 @@ namespace Prototype_TaskPulse
 		}
 		public int PlanDegreeFunc(string degreeName)
 		{
+			//degree yazısını int değerine döndür
 			if (degreeName == "Çok Önemli") { return 6; }
 			else if (degreeName == "Önemli") { return 5; }
 			else if (degreeName == "Az Önemli") { return 4; }
@@ -65,7 +67,7 @@ namespace Prototype_TaskPulse
 		}
 		public string PlanDegreeReverseFunc(int planDegree)
 		{
-			//plan degree değerine göre yazı çıkarıyor (veri -> bilgi)
+			//degree değerini yazıya dönüştür
 			string degreeName = "hata";
 			if (planDegree == 1) { degreeName = "Önemsiz"; }
 			else if (planDegree == 2) { degreeName = "Az Öncelikli"; }
@@ -80,21 +82,24 @@ namespace Prototype_TaskPulse
 
 		private void DailyPlan_Load(object sender, EventArgs e)
 		{
+			//grid tasarımını ayarla, data grid'i ayarla
 			formClear();
 			gridAyari();
 			cmbxFiltDataGrid.SelectedIndex = 0;
 			updateDataGrid();
-			
 		}
 
 		void updateDataGrid()
 		{
 			btnUpdate.Enabled=false;
+			//plans dizisini doldur ve planları düzenle
 			plans = database.SortPlans(database.GetPlans());
+			//data gridi temizle
 			dataGridView1.Rows.Clear();
 
 			DateTime oneMonthLater = DateTime.Now.AddMonths(1);
 			DateTime now = DateTime.Today;
+			//data grid için seçili gösterim için planları filtrele
 			if (cmbxFiltDataGrid.SelectedIndex == 0)
 			{
 				plans = plans.Where(p => p.PlanDate < oneMonthLater && p.PlanDate >= now).ToList();
@@ -103,6 +108,7 @@ namespace Prototype_TaskPulse
 			{
 				plans = plans.Where(p => p.PlanDate > now).ToList();
 			}
+			//planları data gride azdır
 			foreach (PlanClass p in plans)
 			{
 				dataGridView1.Rows.Add(p.PlanName, p.PlanDate.ToString("D"), PlanDegreeReverseFunc(p.PlanDegree), p.PlanType , p.PlanId.ToString());
@@ -114,13 +120,17 @@ namespace Prototype_TaskPulse
 			dataGridView1.ReadOnly = true; // sadece okunabilir olması yani veri düzenleme kapalı
 			dataGridView1.AllowUserToDeleteRows = false; // satırların silinmesi engelleniyor
 			dataGridView1.ColumnCount = 5; //Kaç kolon olacağı belirleniyor…
-			dataGridView1.Columns[0].Name = "Name";//Kolonların adı belirleniyor
+			
+			//Kolonların adı belirleniyor
+			dataGridView1.Columns[0].Name = "Name";
 			dataGridView1.Columns[1].Name = "Date";
 			dataGridView1.Columns[2].Name = "Degree";
 			dataGridView1.Columns[3].Name = "Type";
 			dataGridView1.Columns[4].Name = "Id";
+
+			//belirlenen kolonların genişliği ayarlanıyor
 			dataGridView1.Columns[0].Width = dataGridView1.Width/4;
-			dataGridView1.Columns[1].Width = dataGridView1.Width / 4; //belirlenen kolonların genişliği ayarlanıyor
+			dataGridView1.Columns[1].Width = dataGridView1.Width / 4; 
 			dataGridView1.Columns[2].Width = dataGridView1.Width / 4;
 			dataGridView1.Columns[3].Width = dataGridView1.Width / 4;
 			dataGridView1.Columns[4].Width = 0;
@@ -166,16 +176,19 @@ namespace Prototype_TaskPulse
 
 		private void cmbxFiltDataGrid_SelectedValueChanged(object sender, EventArgs e)
 		{
+			//seçilen filtrelemeye göre ayarla
 			updateDataGrid();
 		}
 
 		private void btnformClear_Click(object sender, EventArgs e)
 		{
+			//formu temizle
 			formClear();
 
 		}
 		public void formClear()
 		{
+			//formdaki yazıları ve değerleri ayarla
 			textBoxPlanName.Clear();
 			richTextBoxPlanDescription.Clear();
 			comboBoxPlanDegree.SelectedIndex = 3;
@@ -221,6 +234,7 @@ namespace Prototype_TaskPulse
 			onePlan.PlanDegree=PlanDegreeFunc(comboBoxPlanDegree.Text);
 			onePlan.PlanType=comboBoxPlanType.Text;
 
+			//database den seçilen plan değerlerini değiştir.
 			database.UpdateSelectedPlan(onePlan.PlanId,onePlan.PlanName,onePlan.PlanDecription,onePlan.PlanDate,onePlan.PlanDegree,onePlan.PlanType,onePlan.PlanCreationDate);
 			updateDataGrid();
 		}

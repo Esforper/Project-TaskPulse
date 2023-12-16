@@ -136,7 +136,7 @@
             "Uyku"});
 			this.cmbxHourName.Location = new System.Drawing.Point(10, 33);
 			this.cmbxHourName.Name = "cmbxHourName";
-			this.cmbxHourName.Size = new System.Drawing.Size(247, 33);
+			this.cmbxHourName.Size = new System.Drawing.Size(247, 28);
 			this.cmbxHourName.TabIndex = 11;
 			// 
 			// btnAddHour
@@ -154,7 +154,7 @@
 			// 
 			this.niHourLong.Location = new System.Drawing.Point(263, 36);
 			this.niHourLong.Name = "niHourLong";
-			this.niHourLong.Size = new System.Drawing.Size(74, 30);
+			this.niHourLong.Size = new System.Drawing.Size(74, 26);
 			this.niHourLong.TabIndex = 9;
 			// 
 			// label7
@@ -194,7 +194,7 @@
             "Aylık Rapor"});
 			this.cmbxReportType.Location = new System.Drawing.Point(154, 13);
 			this.cmbxReportType.Name = "cmbxReportType";
-			this.cmbxReportType.Size = new System.Drawing.Size(183, 33);
+			this.cmbxReportType.Size = new System.Drawing.Size(183, 28);
 			this.cmbxReportType.TabIndex = 5;
 			// 
 			// rtxbxReportDescription
@@ -210,7 +210,7 @@
 			this.label6.AutoSize = true;
 			this.label6.Location = new System.Drawing.Point(45, 160);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(103, 25);
+			this.label6.Size = new System.Drawing.Size(81, 20);
 			this.label6.TabIndex = 8;
 			this.label6.Text = "Açıklama: ";
 			// 
@@ -219,7 +219,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(32, 16);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(116, 25);
+			this.label4.Size = new System.Drawing.Size(93, 20);
 			this.label4.TabIndex = 4;
 			this.label4.Text = "Rapor Türü:";
 			// 
@@ -227,14 +227,14 @@
 			// 
 			this.txtbxReportName.Location = new System.Drawing.Point(154, 52);
 			this.txtbxReportName.Name = "txtbxReportName";
-			this.txtbxReportName.Size = new System.Drawing.Size(172, 30);
+			this.txtbxReportName.Size = new System.Drawing.Size(172, 26);
 			this.txtbxReportName.TabIndex = 1;
 			// 
 			// niReportPuan
 			// 
 			this.niReportPuan.Location = new System.Drawing.Point(154, 124);
 			this.niReportPuan.Name = "niReportPuan";
-			this.niReportPuan.Size = new System.Drawing.Size(76, 30);
+			this.niReportPuan.Size = new System.Drawing.Size(76, 26);
 			this.niReportPuan.TabIndex = 7;
 			// 
 			// label5
@@ -242,7 +242,7 @@
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(40, 126);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(108, 25);
+			this.label5.Size = new System.Drawing.Size(84, 20);
 			this.label5.TabIndex = 6;
 			this.label5.Text = "< - > puan:";
 			// 
@@ -251,7 +251,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(39, 55);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(109, 25);
+			this.label2.Size = new System.Drawing.Size(88, 20);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Rapor ismi:";
 			// 
@@ -259,7 +259,7 @@
 			// 
 			this.dtpickReportDate.Location = new System.Drawing.Point(154, 88);
 			this.dtpickReportDate.Name = "dtpickReportDate";
-			this.dtpickReportDate.Size = new System.Drawing.Size(298, 30);
+			this.dtpickReportDate.Size = new System.Drawing.Size(298, 26);
 			this.dtpickReportDate.TabIndex = 3;
 			// 
 			// label3
@@ -267,7 +267,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(24, 88);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(124, 25);
+			this.label3.Size = new System.Drawing.Size(99, 20);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Rapor Tarihi:";
 			// 
@@ -299,7 +299,7 @@
 			this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.label15.Location = new System.Drawing.Point(35, 49);
 			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(184, 36);
+			this.label15.Size = new System.Drawing.Size(157, 30);
 			this.label15.TabIndex = 5;
 			this.label15.Text = "Derslerle ilgili projeler ders \r\nkategrisine girmektedir";
 			// 
@@ -309,7 +309,7 @@
 			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.label13.Location = new System.Drawing.Point(81, 26);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(48, 18);
+			this.label13.Size = new System.Drawing.Size(40, 15);
 			this.label13.TabIndex = 3;
 			this.label13.Text = "Notlar";
 			// 
@@ -337,12 +337,12 @@
 			// 
 			this.dateTimePicker1.Location = new System.Drawing.Point(12, 13);
 			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(284, 30);
+			this.dateTimePicker1.Size = new System.Drawing.Size(284, 26);
 			this.dateTimePicker1.TabIndex = 0;
 			// 
 			// ReportPage
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
