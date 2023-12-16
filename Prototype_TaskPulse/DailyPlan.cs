@@ -20,6 +20,7 @@ namespace Prototype_TaskPulse
 		List<PlanClass> plans = new List<PlanClass>();	//planların tümü
 		Database database = new Database();				//database yi çağır
 		int selectedRowId;
+		bool showDataGrid = false;
 
 		private void addPlan_Click(object sender, EventArgs e)
 		{
@@ -87,6 +88,8 @@ namespace Prototype_TaskPulse
 			gridAyari();
 			cmbxFiltDataGrid.SelectedIndex = 0;
 			updateDataGrid();
+			showDataGrid = false;
+			panelDataGrid.Width = btnDataGridViewShowHide.Width;
 		}
 
 		void updateDataGrid()
@@ -242,6 +245,20 @@ namespace Prototype_TaskPulse
 		private void btnTableClear_Click(object sender, EventArgs e)
 		{
 			dataGridView1.Rows.Clear();
+		}
+		int panelFormWidth = 456;
+		private void btnDataGridViewShowHide_Click(object sender, EventArgs e)
+		{
+			if (showDataGrid == true)
+			{
+				panelDataGrid.Width = btnDataGridViewShowHide.Width;
+				showDataGrid = false;
+			}
+			else
+			{
+				panelDataGrid.Width = this.Width - panelFormWidth + btnDataGridViewShowHide.Width;
+				showDataGrid = true;
+			}
 		}
 	}
 }
