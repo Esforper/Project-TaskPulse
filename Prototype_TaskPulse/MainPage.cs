@@ -22,10 +22,24 @@ namespace Prototype_TaskPulse
 
 		private void MainPage_Load(object sender, EventArgs e)
 		{
+			//Sayfa açıldığında loading screen göster
+			loadScreen();
+			
 			taskDetailsPanel.Visible = false;
 			formatData();
 
+			//yükleme işlemleri bittikten sonra loading screen gizle
+			loadingScreen.Visible = false;
 		}
+
+		//Main Page sayfası başlatılırken yükleme görsellerini saklamak için LoadingScreen nesnesini çağır.
+		public void loadScreen()
+		{
+			this.Controls.Add(loadingScreen);
+			loadingScreen.Dock = DockStyle.Fill;
+			loadingScreen.Visible = true;
+		}
+		LoadingScreen loadingScreen = new LoadingScreen();
 		DateTime dateTimeToday = DateTime.Today;
 		public void formatData()
 		{
