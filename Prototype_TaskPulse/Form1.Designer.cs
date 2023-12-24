@@ -50,7 +50,7 @@
 			this.flowLayoutPanel1.Controls.Add(this.button3);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(181, 664);
 			this.flowLayoutPanel1.TabIndex = 0;
@@ -135,13 +135,14 @@
 			this.button3.TabIndex = 4;
 			this.button3.Text = "button3";
 			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
 			// mainPanel
 			// 
 			this.mainPanel.AutoScroll = true;
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainPanel.Location = new System.Drawing.Point(181, 0);
-			this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.Size = new System.Drawing.Size(939, 664);
 			this.mainPanel.TabIndex = 1;
@@ -153,7 +154,7 @@
 			this.ClientSize = new System.Drawing.Size(1120, 664);
 			this.Controls.Add(this.mainPanel);
 			this.Controls.Add(this.flowLayoutPanel1);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.MinimumSize = new System.Drawing.Size(870, 569);
 			this.Name = "Form1";
 			this.Text = "Form1";

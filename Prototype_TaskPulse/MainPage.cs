@@ -29,6 +29,8 @@ namespace Prototype_TaskPulse
 			formatData();
 
 			//yükleme işlemleri bittikten sonra loading screen gizle
+			dataGridView1.ClearSelection();
+
 			loadingScreen.Visible = false;
 		}
 
@@ -158,5 +160,20 @@ namespace Prototype_TaskPulse
 		{
 			taskDetailsPanel.Visible = false;
 		}
+
+		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = 	dataGridView1.ColumnHeadersDefaultCellStyle.BackColor;
+		}
+
+		private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			if (e.RowIndex == -1 || e.ColumnIndex == -1)
+			{
+				// DataGridView üzerinde hiçbir hücre seçili olmasını sağla
+				dataGridView1.ClearSelection();
+			}
+		}
+		
 	}
 }

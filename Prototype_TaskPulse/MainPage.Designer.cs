@@ -39,8 +39,11 @@
 			this.planName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.planDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.planId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.panel3 = new System.Windows.Forms.Panel();
 			this.label6 = new System.Windows.Forms.Label();
 			this.taskDetailsPanel = new System.Windows.Forms.Panel();
+			this.panel5 = new System.Windows.Forms.Panel();
 			this.txtbxPlanDescription = new System.Windows.Forms.RichTextBox();
 			this.txtbxPlanType = new System.Windows.Forms.TextBox();
 			this.txtbxPlanDegree = new System.Windows.Forms.TextBox();
@@ -50,9 +53,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.panel4 = new System.Windows.Forms.Panel();
-			this.panel5 = new System.Windows.Forms.Panel();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.taskDetailsPanel.SuspendLayout();
@@ -64,7 +64,7 @@
 			this.panel1.Location = new System.Drawing.Point(4, 652);
 			this.panel1.Margin = new System.Windows.Forms.Padding(2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1012, 60);
+			this.panel1.Size = new System.Drawing.Size(999, 60);
 			this.panel1.TabIndex = 0;
 			// 
 			// panel2
@@ -79,11 +79,12 @@
 			this.panel2.Margin = new System.Windows.Forms.Padding(2);
 			this.panel2.Name = "panel2";
 			this.panel2.Padding = new System.Windows.Forms.Padding(4);
-			this.panel2.Size = new System.Drawing.Size(1020, 716);
+			this.panel2.Size = new System.Drawing.Size(1007, 716);
 			this.panel2.TabIndex = 1;
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AllowUserToAddRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -94,13 +95,13 @@
 			this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-			this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+			this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(91)))));
 			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Desktop;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(91)))));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Lavender;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -120,19 +121,21 @@
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView1.EnableHeadersVisualStyles = false;
 			this.dataGridView1.Location = new System.Drawing.Point(4, 66);
 			this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 20, 2, 2);
 			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.Teal;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(91)))));
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
 			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.RowHeadersWidth = 51;
 			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -141,9 +144,11 @@
 			this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.Control;
 			this.dataGridView1.RowTemplate.Height = 24;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(1012, 586);
+			this.dataGridView1.Size = new System.Drawing.Size(999, 586);
 			this.dataGridView1.TabIndex = 12;
+			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
 			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+			this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
 			this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
 			// 
 			// planName
@@ -173,6 +178,24 @@
 			this.planId.ReadOnly = true;
 			this.planId.Visible = false;
 			// 
+			// panel4
+			// 
+			this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(91)))));
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel4.Location = new System.Drawing.Point(4, 39);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(999, 27);
+			this.panel4.TabIndex = 13;
+			// 
+			// panel3
+			// 
+			this.panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel3.Location = new System.Drawing.Point(4, 36);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(999, 3);
+			this.panel3.TabIndex = 0;
+			// 
 			// label6
 			// 
 			this.label6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -181,7 +204,7 @@
 			this.label6.Location = new System.Drawing.Point(4, 4);
 			this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(1012, 32);
+			this.label6.Size = new System.Drawing.Size(999, 32);
 			this.label6.TabIndex = 1;
 			this.label6.Text = "Today\'s Tasks";
 			// 
@@ -199,11 +222,19 @@
 			this.taskDetailsPanel.Controls.Add(this.label2);
 			this.taskDetailsPanel.Controls.Add(this.label1);
 			this.taskDetailsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-			this.taskDetailsPanel.Location = new System.Drawing.Point(662, 24);
+			this.taskDetailsPanel.Location = new System.Drawing.Point(642, 24);
 			this.taskDetailsPanel.Margin = new System.Windows.Forms.Padding(2);
 			this.taskDetailsPanel.Name = "taskDetailsPanel";
-			this.taskDetailsPanel.Size = new System.Drawing.Size(380, 716);
+			this.taskDetailsPanel.Size = new System.Drawing.Size(387, 716);
 			this.taskDetailsPanel.TabIndex = 0;
+			// 
+			// panel5
+			// 
+			this.panel5.BackColor = System.Drawing.Color.MidnightBlue;
+			this.panel5.Location = new System.Drawing.Point(42, 45);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(308, 2);
+			this.panel5.TabIndex = 10;
 			// 
 			// txtbxPlanDescription
 			// 
@@ -317,42 +348,16 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Task Details";
 			// 
-			// panel3
-			// 
-			this.panel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel3.Location = new System.Drawing.Point(4, 36);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(1012, 3);
-			this.panel3.TabIndex = 0;
-			// 
-			// panel4
-			// 
-			this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel4.Location = new System.Drawing.Point(4, 39);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(1012, 27);
-			this.panel4.TabIndex = 13;
-			// 
-			// panel5
-			// 
-			this.panel5.BackColor = System.Drawing.Color.MidnightBlue;
-			this.panel5.Location = new System.Drawing.Point(42, 45);
-			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(308, 2);
-			this.panel5.TabIndex = 10;
-			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(91)))));
 			this.Controls.Add(this.taskDetailsPanel);
 			this.Controls.Add(this.panel2);
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "MainPage";
-			this.Padding = new System.Windows.Forms.Padding(22, 24, 22, 24);
+			this.Padding = new System.Windows.Forms.Padding(22, 24, 35, 24);
 			this.Size = new System.Drawing.Size(1064, 764);
 			this.Load += new System.EventHandler(this.MainPage_Load);
 			this.panel2.ResumeLayout(false);

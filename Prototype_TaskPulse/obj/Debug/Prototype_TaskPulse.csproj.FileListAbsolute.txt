@@ -15,3 +15,5 @@ C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\bin\Debug\Newt
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.csproj.CopyComplete
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.MainPage.resources
 C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.LoadingScreen.resources
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.CalendarDay.resources
+C:\Projects\Windows Forms\Prototype_TaskPulse\Prototype_TaskPulse\obj\Debug\Prototype_TaskPulse.CalendarMenu.resources

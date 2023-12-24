@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalendarDay.Designer.cs">
+      <DependentUpon>CalendarDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalendarMenu.Designer.cs">
+      <DependentUpon>CalendarMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DailyPlan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,6 +97,12 @@
     <Compile Include="ReportPage.Designer.cs">
       <DependentUpon>ReportPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CalendarDay.resx">
+      <DependentUpon>CalendarDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarMenu.resx">
+      <DependentUpon>CalendarMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DailyPlan.resx">
       <DependentUpon>DailyPlan.cs</DependentUpon>
     </EmbeddedResource>

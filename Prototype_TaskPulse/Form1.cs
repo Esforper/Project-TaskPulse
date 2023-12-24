@@ -52,5 +52,14 @@ namespace Prototype_TaskPulse
 			mainPage.Dock = DockStyle.Fill;
 			mainPage.BringToFront();
 		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			mainPanel.Controls.Clear();
+			CalendarMenu calendarMenu = new CalendarMenu();
+			mainPanel.Controls.Add(calendarMenu);
+			calendarMenu.Dock = DockStyle.Fill;
+			calendarMenu.BringToFront();
+		}
 	}
 }

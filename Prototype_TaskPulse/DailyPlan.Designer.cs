@@ -33,16 +33,17 @@
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.cmbxFiltDataGrid = new System.Windows.Forms.ComboBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.btnDeletePlan = new System.Windows.Forms.Button();
 			this.btnTableClear = new System.Windows.Forms.Button();
 			this.label6 = new System.Windows.Forms.Label();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
 			this.btnDataGridViewShowHide = new System.Windows.Forms.Button();
+			this.btnDeletePlan = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panelForm = new System.Windows.Forms.Panel();
-			this.btnformClear = new System.Windows.Forms.Button();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnUpdate = new System.Windows.Forms.Button();
+			this.btnformClear = new System.Windows.Forms.Button();
 			this.labelError = new System.Windows.Forms.Label();
 			this.comboBoxPlanType = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panelDataGrid.SuspendLayout();
 			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -135,18 +135,6 @@
 			this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
 			this.dataGridView1.SizeChanged += new System.EventHandler(this.dataGridView1_SizeChanged);
 			// 
-			// btnDeletePlan
-			// 
-			this.btnDeletePlan.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnDeletePlan.Location = new System.Drawing.Point(135, 2);
-			this.btnDeletePlan.Margin = new System.Windows.Forms.Padding(2);
-			this.btnDeletePlan.Name = "btnDeletePlan";
-			this.btnDeletePlan.Size = new System.Drawing.Size(130, 66);
-			this.btnDeletePlan.TabIndex = 10;
-			this.btnDeletePlan.Text = "planı sil";
-			this.btnDeletePlan.UseVisualStyleBackColor = true;
-			this.btnDeletePlan.Click += new System.EventHandler(this.btnDeletePlan_Click);
-			// 
 			// btnTableClear
 			// 
 			this.btnTableClear.Location = new System.Drawing.Point(50, 365);
@@ -191,6 +179,22 @@
 			this.btnDataGridViewShowHide.Text = ">";
 			this.btnDataGridViewShowHide.UseVisualStyleBackColor = true;
 			this.btnDataGridViewShowHide.Click += new System.EventHandler(this.btnDataGridViewShowHide_Click);
+			// 
+			// btnDeletePlan
+			// 
+			this.btnDeletePlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(58)))), ((int)(((byte)(113)))));
+			this.btnDeletePlan.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnDeletePlan.FlatAppearance.BorderSize = 0;
+			this.btnDeletePlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDeletePlan.ForeColor = System.Drawing.Color.PaleTurquoise;
+			this.btnDeletePlan.Location = new System.Drawing.Point(135, 2);
+			this.btnDeletePlan.Margin = new System.Windows.Forms.Padding(2);
+			this.btnDeletePlan.Name = "btnDeletePlan";
+			this.btnDeletePlan.Size = new System.Drawing.Size(130, 62);
+			this.btnDeletePlan.TabIndex = 10;
+			this.btnDeletePlan.Text = "planı sil";
+			this.btnDeletePlan.UseVisualStyleBackColor = false;
+			this.btnDeletePlan.Click += new System.EventHandler(this.btnDeletePlan_Click);
 			// 
 			// panel2
 			// 
@@ -238,30 +242,54 @@
 			this.panelForm.Size = new System.Drawing.Size(417, 615);
 			this.panelForm.TabIndex = 2;
 			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.btnUpdate, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.btnDeletePlan, 1, 0);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(87, 527);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(268, 66);
+			this.tableLayoutPanel1.TabIndex = 16;
+			// 
+			// btnUpdate
+			// 
+			this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(58)))), ((int)(((byte)(113)))));
+			this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnUpdate.FlatAppearance.BorderSize = 0;
+			this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnUpdate.ForeColor = System.Drawing.Color.PaleTurquoise;
+			this.btnUpdate.Location = new System.Drawing.Point(2, 2);
+			this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+			this.btnUpdate.Name = "btnUpdate";
+			this.btnUpdate.Size = new System.Drawing.Size(129, 62);
+			this.btnUpdate.TabIndex = 14;
+			this.btnUpdate.Text = "planı düzenle";
+			this.btnUpdate.UseVisualStyleBackColor = false;
+			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+			// 
 			// btnformClear
 			// 
 			this.btnformClear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnformClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(58)))), ((int)(((byte)(113)))));
+			this.btnformClear.FlatAppearance.BorderSize = 0;
+			this.btnformClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnformClear.ForeColor = System.Drawing.Color.PaleTurquoise;
 			this.btnformClear.Location = new System.Drawing.Point(179, 473);
 			this.btnformClear.Margin = new System.Windows.Forms.Padding(2);
 			this.btnformClear.Name = "btnformClear";
 			this.btnformClear.Size = new System.Drawing.Size(84, 49);
 			this.btnformClear.TabIndex = 10;
 			this.btnformClear.Text = "Formu temizle";
-			this.btnformClear.UseVisualStyleBackColor = true;
+			this.btnformClear.UseVisualStyleBackColor = false;
 			this.btnformClear.Click += new System.EventHandler(this.btnformClear_Click);
-			// 
-			// btnUpdate
-			// 
-			this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnUpdate.Location = new System.Drawing.Point(2, 2);
-			this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
-			this.btnUpdate.Name = "btnUpdate";
-			this.btnUpdate.Size = new System.Drawing.Size(129, 66);
-			this.btnUpdate.TabIndex = 14;
-			this.btnUpdate.Text = "planı düzenle";
-			this.btnUpdate.UseVisualStyleBackColor = true;
-			this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
 			// 
 			// labelError
 			// 
@@ -309,13 +337,17 @@
 			// 
 			this.addPlan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.addPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(58)))), ((int)(((byte)(113)))));
+			this.addPlan.FlatAppearance.BorderSize = 0;
+			this.addPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.addPlan.ForeColor = System.Drawing.Color.PaleTurquoise;
 			this.addPlan.Location = new System.Drawing.Point(120, 421);
 			this.addPlan.Margin = new System.Windows.Forms.Padding(2);
 			this.addPlan.Name = "addPlan";
 			this.addPlan.Size = new System.Drawing.Size(205, 48);
 			this.addPlan.TabIndex = 9;
 			this.addPlan.Text = "Planı Belirtilen Tarihe Ekle";
-			this.addPlan.UseVisualStyleBackColor = true;
+			this.addPlan.UseVisualStyleBackColor = false;
 			this.addPlan.Click += new System.EventHandler(this.addPlan_Click);
 			// 
 			// comboBoxPlanDegree
@@ -418,22 +450,6 @@
 			this.label2.Size = new System.Drawing.Size(109, 26);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Plan İsmi:";
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Controls.Add(this.btnUpdate, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.btnDeletePlan, 1, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(87, 527);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(267, 70);
-			this.tableLayoutPanel1.TabIndex = 16;
 			// 
 			// DailyPlan
 			// 
